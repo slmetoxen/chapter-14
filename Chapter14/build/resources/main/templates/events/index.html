@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<!--<header th:replace="fragments :: header"></header> this was in video, but I don't remember doing it-->
+<h1>All Events</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${events} and ${events.size()}">No events!</p>
+
+<!--<ul>-->
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <!--    <th:block th:each="event : ${events}">-->
+    <!--        <li th:text="${event}"></li>-->
+    <!--    </th:block>-->
+    <tr th:each="event : ${events}">
+        <td th:text="${event.name}"></td>
+    </tr>
+</table>
+<!--</ul>-->
+
+</body>
+</html>
